@@ -178,15 +178,22 @@
 		</div>
 		
 	</div>
-	<script src="../../js/public/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/public/jquery.min.js"></script>
+	<script src="../../js/public/tools.js" type="text/javascript" charset="utf-8"></script>
 	<script>
       	mui.init();
-  		$(".main-container").css("height", $(document).height()-160+"px");
+      	
       	mui.plusReady(function(){
       		mui("#slider").slider({
       			interval: 3000
       		})
       		
+	  		$(".main-container").css("height", $(document).height()-160+"px");
+      		
+      		// 服务网点
+      		$(".network-items").on("tap", function(){
+      			openWindow("./network/service-network.html")
+      		})
       	})
     </script>
 </body>
