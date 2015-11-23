@@ -24,6 +24,49 @@
 			background-color: #c4ebdd;
 			color: #01a76e;
 		}
+		.mui-table-view.mui-grid-view {
+			background: #ff69b4;
+		}
+		.mui-table-view.mui-grid-view .mui-table-view-cell {
+			color: #fff;
+		}
+		.mui-table-view.mui-grid-view .mui-table-view-cell .arrow-item {
+			width: 10px;
+			height: 10px;
+			margin-left: 6px;
+		}
+		.mui-grid-view.mui-grid-9 {
+			border-top: 0;
+		}
+		.mui-grid-view.mui-grid-9:after, .mui-grid-view.mui-grid-9:before {
+			display: inherit;content: none;
+		}
+		.mui-table-view.mui-grid-view .mui-table-view-cell:last-child{
+			border-right: 0;
+		}
+		#network-list .network-place {
+			
+		}
+		#network-list .icon-local {
+			width: 20px;height: 30px;position: relative;
+		}
+		#network-list .icon-local .net-distance {
+			
+		}
+		#network-list .left-obj {
+			width: 72px;height: 72px;max-width: none;
+		}
+		.content-box .tel-phone,
+		.content-box .net-place {
+			line-height: 17px;
+		}
+		.content-box .network-place {
+			color: #333;
+		}
+		.net-right-icon {
+			padding-top: 10px;
+		}
+		.mui-content .mui-scroll-wrapper {top: 137px;}
     </style>
 </head>
 <body>
@@ -42,20 +85,233 @@
 			</div>
 			<button type="button" class="coupon_sub mui-pull-left">搜索</button>
 		</div>
-		<ul class="mui-table-view mui-grid-view"> 
-			<li class="mui-table-view-cell mui-col-sm-4">
-				省
+		<ul class="mui-table-view mui-grid-view mui-grid-9"> 
+			<li class="mui-table-view-cell mui-col-xs-4" id="privince-item">
+				省<img src="../../../img/arrow-down.png" alt="" class="arrow-item" />
+			</li>
+			<li class="mui-table-view-cell mui-col-xs-4" id="city-item">
+				市<img src="../../../img/arrow-down.png" alt="" class="arrow-item" />
+			</li>
+			<li class="mui-table-view-cell mui-col-xs-4" id="area-item">
+				县/区<img src="../../../img/arrow-down.png" alt="" class="arrow-item" />
 			</li>
 		</ul>
-		
-		
-		
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="mui-table-view" id="network-list">
+			
+					<li class="mui-table-view-cell mui-media">
+						<div class="">
+							<img src="../../../img/network-item.png" class="mui-media-object mui-pull-left left-obj"/>
+							<div class="mui-pull-right mui-text-center net-right-icon">
+								<img src="../../../img/location.png" class="mui-media-object icon-local"/>
+								<div class="net-distance mui-h6">100m</div>
+							</div>
+							<div class="content-box mui-media-body">
+								<div class="network-place mui-ellipsis mui-h5">上海嘉定区德奈福总部网点</div>
+								<p class="tel-phone mui-h6">电话:400-000-000</p>
+								<p class="net-place mui-h6 mui-ellipsis-2">地址:上海嘉定区德奈福总部上海嘉定区德奈福总部</p>
+							</div>
+						</div>
+					</li>
+					
+					<li class="mui-table-view-cell mui-media">
+						<div class="">
+							<img src="../../../img/network-item.png" class="mui-media-object mui-pull-left left-obj"/>
+							<div class="mui-pull-right mui-text-center net-right-icon">
+								<img src="../../../img/location.png" class="mui-media-object icon-local"/>
+								<div class="net-distance mui-h6">100m</div>
+							</div>
+							<div class="content-box mui-media-body">
+								<div class="network-place mui-ellipsis mui-h5">上海嘉定区德奈福总部网点</div>
+								<p class="tel-phone mui-h6">电话:400-000-000</p>
+								<p class="net-place mui-h6 mui-ellipsis-2">地址:上海嘉定区德奈福总部上海嘉定区德奈福总部</p>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<div class="">
+							<img src="../../../img/network-item.png" class="mui-media-object mui-pull-left left-obj"/>
+							<div class="mui-pull-right mui-text-center net-right-icon">
+								<img src="../../../img/location.png" class="mui-media-object icon-local"/>
+								<div class="net-distance mui-h6">100m</div>
+							</div>
+							<div class="content-box mui-media-body">
+								<div class="network-place mui-ellipsis mui-h5">上海嘉定区德奈福总部网点</div>
+								<p class="tel-phone mui-h6">电话:400-000-000</p>
+								<p class="net-place mui-h6 mui-ellipsis-2">地址:上海嘉定区德奈福总部上海嘉定区德奈福总部</p>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<div class="">
+							<img src="../../../img/network-item.png" class="mui-media-object mui-pull-left left-obj"/>
+							<div class="mui-pull-right mui-text-center net-right-icon">
+								<img src="../../../img/location.png" class="mui-media-object icon-local"/>
+								<div class="net-distance mui-h6">100m</div>
+							</div>
+							<div class="content-box mui-media-body">
+								<div class="network-place mui-ellipsis mui-h5">上海嘉定区德奈福总部网点</div>
+								<p class="tel-phone mui-h6">电话:400-000-000</p>
+								<p class="net-place mui-h6 mui-ellipsis-2">地址:上海嘉定区德奈福总部上海嘉定区德奈福总部</p>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<div class="">
+							<img src="../../../img/network-item.png" class="mui-media-object mui-pull-left left-obj"/>
+							<div class="mui-pull-right mui-text-center net-right-icon">
+								<img src="../../../img/location.png" class="mui-media-object icon-local"/>
+								<div class="net-distance mui-h6">100m</div>
+							</div>
+							<div class="content-box mui-media-body">
+								<div class="network-place mui-ellipsis mui-h5">上海嘉定区德奈福总部网点</div>
+								<p class="tel-phone mui-h6">电话:400-000-000</p>
+								<p class="net-place mui-h6 mui-ellipsis-2">地址:上海嘉定区德奈福总部上海嘉定区德奈福总部</p>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<div class="">
+							<img src="../../../img/network-item.png" class="mui-media-object mui-pull-left left-obj"/>
+							<div class="mui-pull-right mui-text-center net-right-icon">
+								<img src="../../../img/location.png" class="mui-media-object icon-local"/>
+								<div class="net-distance mui-h6">100m</div>
+							</div>
+							<div class="content-box mui-media-body">
+								<div class="network-place mui-ellipsis mui-h5">上海嘉定区德奈福总部网点</div>
+								<p class="tel-phone mui-h6">电话:400-000-000</p>
+								<p class="net-place mui-h6 mui-ellipsis-2">地址:上海嘉定区德奈福总部上海嘉定区德奈福总部</p>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<div class="">
+							<img src="../../../img/network-item.png" class="mui-media-object mui-pull-left left-obj"/>
+							<div class="mui-pull-right mui-text-center net-right-icon">
+								<img src="../../../img/location.png" class="mui-media-object icon-local"/>
+								<div class="net-distance mui-h6">100m</div>
+							</div>
+							<div class="content-box mui-media-body">
+								<div class="network-place mui-ellipsis mui-h5">上海嘉定区德奈福总部网点</div>
+								<p class="tel-phone mui-h6">电话:400-000-000</p>
+								<p class="net-place mui-h6 mui-ellipsis-2">地址:上海嘉定区德奈福总部上海嘉定区德奈福总部</p>
+							</div>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
 	</div>
 	
+	<style type="text/css">
+		.mui-popover {
+			width: 33%;text-align: center;top: 138px;height: 280px;border-radius: 0;
+			border: none;
+		}
+		#show-privince {left: 1px;}
+		#show-city {left: 33%;}
+		#show-area {right: 2px;}
+		.mui-popover .mui-scroll-wrapper {
+			top: 0px;left: 0px;width: 100%;border-radius: 0;bottom: 0;margin: 0;
+		}
+		.mui-popover .mui-table-view {
+			background: #bbb;border-radius: 0;
+		}
+		.mui-popover .mui-table-view .mui-table-view-cell {
+			color: #333;height: 35px;line-height: 35px;padding: 0;
+		}
+		.mui-popover .mui-table-view .mui-table-view-cell.mui-active {border-radius: 0;}
+		.mui-popover .mui-table-view .mui-table-view-cell:after{left: 0;}
+	</style>
+	
+	<div class="mui-popover" id="show-privince">
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">全部</li>
+					<li class="mui-table-view-cell">北京</li>
+					<li class="mui-table-view-cell">上海</li>
+					<li class="mui-table-view-cell">广东</li>
+					<li class="mui-table-view-cell">浙江</li>
+					<li class="mui-table-view-cell">苏州</li>
+					<li class="mui-table-view-cell">河北</li>
+					<li class="mui-table-view-cell">河南</li>
+					<li class="mui-table-view-cell">山东</li>
+					<li class="mui-table-view-cell">山西</li>
+					<li class="mui-table-view-cell">福建</li>
+					<li class="mui-table-view-cell">四川</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div class="mui-popover" id="show-city">
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">全部</li>
+					<li class="mui-table-view-cell">北京</li>
+					<li class="mui-table-view-cell">上海</li>
+					<li class="mui-table-view-cell">广东</li>
+					<li class="mui-table-view-cell">浙江</li>
+					<li class="mui-table-view-cell">苏州</li>
+					<li class="mui-table-view-cell">河北</li>
+					<li class="mui-table-view-cell">河南</li>
+					<li class="mui-table-view-cell">山东</li>
+					<li class="mui-table-view-cell">山西</li>
+					<li class="mui-table-view-cell">福建</li>
+					<li class="mui-table-view-cell">四川</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div class="mui-popover" id="show-area">
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">全部</li>
+					<li class="mui-table-view-cell">北京</li>
+					<li class="mui-table-view-cell">上海</li>
+					<li class="mui-table-view-cell">广东</li>
+					<li class="mui-table-view-cell">浙江</li>
+					<li class="mui-table-view-cell">苏州</li>
+					<li class="mui-table-view-cell">河北</li>
+					<li class="mui-table-view-cell">河南</li>
+					<li class="mui-table-view-cell">山东</li>
+					<li class="mui-table-view-cell">山西</li>
+					<li class="mui-table-view-cell">福建</li>
+					<li class="mui-table-view-cell">四川</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<script src="../../../js/public/jquery.min.js"></script>
+	<script src="../../../js/public/tools.js"></script>
 	<script>
       	mui.init();
       	
-      	
+      	mui.plusReady(function(){
+      		mui(".mui-scroll-wrapper").scroll();
+      		
+      		$("#privince-item").on("tap", function(){
+      			mui("#show-privince").popover("show")
+      		})
+      		$("#city-item").on("tap", function(){
+      			mui("#show-city").popover("show")
+      		})
+      		$("#area-item").on("tap", function(){
+      			mui("#show-area").popover("show")
+      		})
+      		
+      		$("#network-list").on("tap", ".mui-table-view-cell", function(){
+      			openWindow("./network-detail.html");
+      		})
+      		
+      	})
       	
     </script>
 </body>
