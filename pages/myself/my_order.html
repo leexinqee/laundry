@@ -241,9 +241,8 @@ $(".date_time").on('tap', function() {
 			minDate: minDate,
 			maxDate: maxDate
 		});
-	})
-var data2;
- var data2={
+	});
+ var data_two={
 	list:[
 	{
 		"address":'上海赢网点',
@@ -270,9 +269,7 @@ var data2;
 		"satuse":'洗护中'
 	}
 ]};
-
-var data1;
-var data1={
+var data_one={
 	list:[
 	{
 		"address":'上海赢定区德福服务网点',
@@ -298,47 +295,54 @@ var data1={
 		"numbers":'4',
 		"satuse":'已完成'
 	}
-]}
-list_(data1);
-function list_(data){
-var html=template('template',data);
+]};
+list_(data_one);
+function list_(datas){
+var html=template('template',datas);
 document.querySelector('#history_info').innerHTML=html;
 }
 //历史订单与洗护处查看
 $('.nav_contain').on('tap',function(){
+	$(this).addClass('nav_contain_right').css('color','#559297').siblings().removeClass('nav_contain_right').css('color','black');
+	$('#order_number').val('');
 	var status=$(this).attr('data-value');
 	console.log(status)
-	if(status==='2'){
-		list_(data2); 
-		alert(2)
+	if(status==='2'){  
+		list_(data_two);
 	}else{
-		list_(data1);
-		alert(1)
-		console.log(JSON.stringify(data1))
+		list_(data_one); 
 	}
-	$(this).addClass('nav_contain_right').css('color','#559297').siblings().removeClass('nav_contain_right').css('color','black');
+	
 })
-var total=$.extend(data1['list'], data2['list']);
+//var totals.push(data_one, data_two); 
+//console.log(JSON.stringify(totals))
 //订单号搜索
 $('#number_search').on('tap',function(){
-	var value=$('#order_number').val().trim();
-	if(value==''){
+	var values=$('#order_number').val().trim();
+	if(values==''){ 
 		mui.toast("请输入订单号再查询");
 		return ;
 	}else{ 
-		search(total,value);
+		search(values); 
 	}
 })
-function search(total,value){
+function search(values){
 	var sub_data=[];
-	for(var i in total['list']){
-		if(total['list'][i].numbers.trim().lastIndexOf(value)!=-1){
-			sub_data.push(total['list'][i]);
+	for(var i in data_one['list']){
+		if(data_one['list'][i].numbers.indexOf(values)!=-1){
+			 sub_data.push(data_one['list'][i]);
 		}
+	} 
+	if(sub_data.length==0){  
+			for(var i in data_two['list']){
+			if(data_two['list'][i].numbers.indexOf(values)!=-1){
+				 sub_data.push(data_two['list'][i]);
+			}
+		} 
 	}
 	data_={
-		list:sub_data
-	}
+		list:sub_data 
+	};
 	list_(data_);
 }
 })
