@@ -9,14 +9,16 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/main.css" />
 		<style>
 			html,body {background-color: #efeff4;}
 			.bar-location {width: 60px;height: 44px;line-height: 44px;color: #aaa;}
 		</style>
+		
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
+		<header class="mui-bar mui-bar-nav header defaultTab">
 			<div class="mui-pull-left left-icon">
 				<span class="bar-location left-item">上海</span>
 			</div>
@@ -25,9 +27,12 @@
 				<a class="mui-icon mui-icon-gear icon-item"></a>
 			</div>
 		</header>
+		<header class="mui-bar-nav mui-bar nav_header myself mui-hidden">
+			<h4>个人中心</h4>
+		</header>
 		<nav class="mui-bar mui-bar-tab">
 			<a id="defaultTab" class="mui-tab-item mui-active" href="./pages/main/sub-main.html">
-				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-icon mui-icon-home"></span> 
 				<span class="mui-tab-label">首页</span>
 			</a>
 			<a class="mui-tab-item" href="./pages/collect/sub-collect.html">
@@ -38,7 +43,7 @@
 				<span class="mui-icon mui-icon-contact"></span>
 				<span class="mui-tab-label">会员卡</span>
 			</a>
-			<a class="mui-tab-item" href="pages/myself/sub_person_info.html">
+			<a class="mui-tab-item" id="myself" href="pages/myself/sub_person_info.html">
 				<span class="mui-icon mui-icon-gear"></span>
 				<span class="mui-tab-label">我的</span>
 			</a>
@@ -73,10 +78,12 @@
 			});
 			 //当前激活选项
 			var activeTab = subpages[0];
-			var title = document.getElementById("title");
+			var title = document.getElementById("title"); 
 			 //选项卡点击事件
 			mui('.mui-bar-tab').on('tap', 'a', function(e) {
 				var targetTab = this.getAttribute('href');
+				var names=this.id;
+				$('.'+names).removeClass('mui-hidden').siblings('header').addClass('mui-hidden');
 				if (targetTab == activeTab) {
 					return;
 				}
@@ -86,9 +93,10 @@
 					$(".left-icon, .icon-item").css("display", "none");
 				}
 				//更换标题
-				title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+//				title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+				
 				//显示目标选项卡
-				if(mui.os.ios||aniShow[targetTab]){
+				if(mui.os.ios||aniShow[targetTab]){  
 					plus.webview.show(targetTab);
 				}else{
 					var temp = {};

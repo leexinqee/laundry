@@ -28,7 +28,7 @@
     		width: 100%;
     		background: url(../../img/pic_bg.png) no-repeat;
     		background-size: 100% 6em;
-    		padding: 1.1em;
+    		padding: 1em;  
     	}
     	.headPic{
     		width: 3.8em;
@@ -60,7 +60,9 @@
     		background: url(../../img/head_button.png)no-repeat;
     		background-size: 100% 100%;
     	}
-    	
+    	.mui-table-view-cell{
+    		padding-right: 0;
+    	}
     </style>
 </head>
 <body>
@@ -71,7 +73,7 @@
 	<content class="mui-content">
 		<div class="mui-scroll-wrap">
 			<div class="mui-scroll">
-				<div class="main_mask mui-hidden"></div>
+				<div class="main_mask mui-hidden"></div> 
 				<div class="mui-popover" id="popover" style="display: block;">
 					<ul class="mui-table-view">
 						<li class="mui-table-view-cell" style="height: 2em;"></li>
@@ -98,7 +100,7 @@
 						<div class="li_right_title"><img src="../../img/right_arrow.png" alt="" class="li_right_img" /></div>
 					</li>
 					<li class="mui-table-view-cell"><span>我的订单</span> 
-						<div class="li_right_title"><img src="../../img/right_arrow.png" alt="" class="li_right_img" /></div>
+						<div class="li_right_title"id="my_order"><img src="../../img/right_arrow.png" alt="" class="li_right_img" /></div>
 					</li>
 					<li class="mui-table-view-cell"><span>我的积分</span> 
 						<div class="li_right_title"><img src="../../img/right_arrow.png" alt="" class="li_right_img" /></div>
@@ -130,5 +132,11 @@
 					} 
 				})
 			});
+	document.querySelector('#my_order').addEventListener('tap',function(){
+		mui.openWindow({
+			url:'my_order.html',
+			id:'my_order.html'
+		})
+	})
 </script>
 </html>

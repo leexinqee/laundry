@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../../js/mui.js"></script>
+    <link href="../../css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../css/main.css" />
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+    <style type="text/css">
+    	.nav_contain{
+    		position: relative;
+    		height: 3em;
+    		width: 50%;
+    		line-height: 3.5em;
+    		text-align: center;
+    		font-weight: bold;
+    	}
+    	.history_nav:after{
+    		height: 0;
+    	}
+    	.nav_contain_middle:before{
+    		position: absolute;
+    		content: '';
+    		background-color: silver;
+    		height: 1.3em;
+    		top: 50%;
+    		left: 0;
+    		margin-top: -.5em;
+    		width: 1px;
+    	}
+    	
+    	.nav_contain_right:after{
+    		position: absolute;
+    		content: '';
+    		height: 2px;  
+    		width: 4em;
+    		left: 50%;
+    		margin-left: -2em;
+    		z-index: 100;
+    		bottom: 0; 
+    		background-color:#559297;
+    	}
+    	.content_search{
+    		background-color: #E7E7E7;
+    	}
+    	.content_search li{
+    		padding:0 .5em ;
+    	}
+    	/*.one_search{
+    		height: 40px; 
+    		line-height: 2em;
+    		border: 0px;
+    		width: 70%;  
+    		margin-top: 1em;
+    		float: left;
+    		padding: 5px;
+    	}*/
+    	.li_input{
+    		overflow: hidden;
+    		height: 3em;
+    		margin-right: 4em;
+    	}
+    	.li_input2{
+    		overflow: hidden;
+    		height: 3em;
+    		padding-top: 0.5em;
+    		text-align: center;
+    		line-height: 2.5em; 
+    		margin-right: 4em;
+    	}
+    	.li_input2 .time_right{
+    		width: 40%;
+    		height: 2em;
+    		background-color: #fff;
+    		margin: 0;
+    		padding: 0;
+    		position: relative;
+    	}
+    	.time_right:after{
+    		position: absolute;
+    		content:url(../../img/time.png);
+    		right: 5px;
+    		margin-top: -2px;
+    		z-index: 100;
+    	}
+    	.li_input input{
+    		width: 100%;
+    		height: 2em;
+    		margin: 0;
+    		padding: 0;
+    	}
+    	.li_right_div{
+    		height: 2em;
+    		width: 3em;
+    		float: right;
+    	}
+    	.search_button{
+    		margin-top: .5em;
+    		background-color:#008FA9 ;
+    		color: white;
+    		box-shadow: 3px 3px 3px silver; 
+    	}
+    	.header_left_img{
+    		width: 3em;
+    		height: 3em;
+    		float: left;
+    	}
+    	.header_right_img{
+    		width: 3em;
+    		height: 3em;
+    		float: right;
+    	}
+    	.header_left_img img{
+			height: 1em;
+			width: .6em;
+			margin: 1em 1.2em;
+    	}
+    	.nav_header{
+    		padding-left: 0;
+    	}
+    	.history_info_address{
+    		background-color: #B8B8B8;
+    		height: 2.5em;
+    		line-height: 2.5em;
+    		color: #fff;
+    	}
+    	.history_info_number{
+    		height: 3em;
+    		line-height: 3em;
+    	}
+    	.history_info_number:after{
+    		height: 0;
+    	}
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav nav_header">
+		<div class="header_left_img mui-action-back">
+			<img src="../../img/left_arrow.png" alt="" />
+		</div> 
+		<h4>我的订单</h4>
+		<div class="header_right_img"></div>
+	</header>  
+	<div class="mui-content">
+		<div class="mui-scroll-wrap">
+			<div class="mui-scroll"> 
+				<ul class="mui-table-view history_nav">
+					<li class="mui-table-view-cell">
+						<div class="nav_contain mui-pull-left nav_contain_right" data-value="1"> 
+							<span>历史订单</span>
+						</div>
+						<div class="nav_contain mui-pull-right nav_contain_middle " data-value='2'>
+							<span>洗护处</span>
+						</div>
+					</li>
+				</ul>
+				<ul class="mui-table-view content_search">
+					<li class="mui-table-view-cell">
+						<div class="li_right_div">
+							<button class="search_button mui-pull-right" id="number_search">搜索</button>
+						</div>
+						<div class="li_input">
+							<input type="text" placeholder="请输入你要查询的订单号" id="order_number"/>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="li_right_div">
+							<button class="search_button mui-pull-right" id="time_search">搜索</button>
+						</div>
+						<div class="li_input2">
+							<div class="time_right mui-pull-left one date_time" >
+								请选择日期
+							</div>
+							<span>至</span>
+							<div class="time_right mui-pull-right date_time" >
+								<span>请选择日期</span>  
+							</div>
+						</div>
+						
+					</li>
+				</ul>
+				<ul class="mui-table-view" id="history_info">
+					<!--<li class="mui-table-view-cell history_info_address"> 
+						<span class="mui-pull-left">上海赢定区德福服务网点</span>
+						<span class="mui-pull-right">2015-11-23</span>
+					</li>
+					<li class="mui-table-view-cell history_info_number">
+						<span class="mui-pull-left">订单号：<span id="list_number">156464664644558644</span></span>
+						<span class="mui-pull-right" style="color: #028FAD;">洗护中</span>
+					</li>
+					<li class="mui-table-view-cell history_info_address"> 
+						<span class="mui-pull-left">上海赢定区德福服务网点</span>
+						<span class="mui-pull-right">2015-11-23</span>
+					</li>
+					<li class="mui-table-view-cell history_info_number">
+						<span class="mui-pull-left">订单号：<span id="list_number">156464664644558644</span></span>
+						<span class="mui-pull-right"  style="color: #028FAD;">洗护中</span>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="../../js/template.js"></script>
+<script type="text/html" id="template">
+	{{each list as value}}
+	<li class="mui-table-view-cell history_info_address"> 
+		<span class="mui-pull-left">{{value.address}}</span>
+		<span class="mui-pull-right">{{value.time}}</span>
+	</li>
+	<li class="mui-table-view-cell history_info_number">
+		<span class="mui-pull-left">订单号：<span id="list_number">{{value.numbers}}</span></span>
+		<span class="mui-pull-right"  style="color: #028FAD;">{{value.satuse}}</span>
+	</li>
+	{{/each}}
+</script>
+<script>
+mui.plusReady(function(){
+//时间选择
+$(".date_time").on('tap', function() {
+		var dDate = new Date();
+		dDate.setFullYear(2014, 7, 16);
+		var minDate = new Date();
+		minDate.setFullYear(2010, 0, 1);
+		var maxDate = new Date();
+		maxDate.setFullYear(2016, 11, 31);
+		plus.nativeUI.pickDate(function(e) {
+			var d = e.date; 
+			$('.date_time').text(d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate());
+			console.log(d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate())
+		}, function(e) {   
+			mui.toast('您没有选择日期');
+		}, {
+			title: "请选择日期",
+			date: dDate,
+			minDate: minDate,
+			maxDate: maxDate
+		});
+	})
+var data2;
+ var data2={
+	list:[
+	{
+		"address":'上海赢网点',
+		"time":'2015-11-23',
+		"numbers":'5',
+		"satuse":'洗护中'
+	},
+	{
+		"address":'上海赢网点',
+		"time":'2015-11-23',
+		"numbers":'6',
+		"satuse":'洗护中'
+	},
+	{
+		"address":'上海赢定网点',
+		"time":'2015-11-23',
+		"numbers":'7',
+		"satuse":'洗护中'
+	},
+	{
+		"address":'上海赢定区网点',
+		"time":'2015-11-23',
+		"numbers":'8',
+		"satuse":'洗护中'
+	}
+]};
+
+var data1;
+var data1={
+	list:[
+	{
+		"address":'上海赢定区德福服务网点',
+		"time":'2015-11-23',
+		"numbers":'1',
+		"satuse":'已完成'
+	},
+	{
+		"address":'上海赢定区德福服务网点',
+		"time":'2015-11-23',
+		"numbers":'2',
+		"satuse":'已完成'
+	},
+	{
+		"address":'上海赢定区德福服务网点',
+		"time":'2015-11-23',
+		"numbers":'3',
+		"satuse":'已完成'
+	},
+	{
+		"address":'上海赢定区德福服务网点',
+		"time":'2015-11-23',
+		"numbers":'4',
+		"satuse":'已完成'
+	}
+]}
+list_(data1);
+function list_(data){
+var html=template('template',data);
+document.querySelector('#history_info').innerHTML=html;
+}
+//历史订单与洗护处查看
+$('.nav_contain').on('tap',function(){
+	var status=$(this).attr('data-value');
+	console.log(status)
+	if(status==='2'){
+		list_(data2); 
+		alert(2)
+	}else{
+		list_(data1);
+		alert(1)
+		console.log(JSON.stringify(data1))
+	}
+	$(this).addClass('nav_contain_right').css('color','#559297').siblings().removeClass('nav_contain_right').css('color','black');
+})
+var total=$.extend(data1['list'], data2['list']);
+//订单号搜索
+$('#number_search').on('tap',function(){
+	var value=$('#order_number').val().trim();
+	if(value==''){
+		mui.toast("请输入订单号再查询");
+		return ;
+	}else{ 
+		search(total,value);
+	}
+})
+function search(total,value){
+	var sub_data=[];
+	for(var i in total['list']){
+		if(total['list'][i].numbers.trim().lastIndexOf(value)!=-1){
+			sub_data.push(total['list'][i]);
+		}
+	}
+	data_={
+		list:sub_data
+	}
+	list_(data_);
+}
+})
+</script>
+</html>
