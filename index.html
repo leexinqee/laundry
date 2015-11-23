@@ -82,18 +82,21 @@
 			 //选项卡点击事件
 			mui('.mui-bar-tab').on('tap', 'a', function(e) {
 				var targetTab = this.getAttribute('href');
-				var names=this.id;
-				$('.'+names).removeClass('mui-hidden').siblings('header').addClass('mui-hidden');
+//				var names=this.id;
+//				$('.'+names).removeClass('mui-hidden').siblings('header').addClass('mui-hidden');
 				if (targetTab == activeTab) {
 					return;
 				}
+				title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+				
 				if(targetTab.indexOf("sub-main") > 0){
 					$(".left-icon, .icon-item").css("display", "block");
+				} else if(targetTab.indexOf("sub_person_info") > 0){
+					title.innerHTML = "个人中心";
 				} else {
 					$(".left-icon, .icon-item").css("display", "none");
 				}
 				//更换标题
-//				title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
 				
 				//显示目标选项卡
 				if(mui.os.ios||aniShow[targetTab]){  

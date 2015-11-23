@@ -29,7 +29,7 @@
     		width: 100%;
     		background: url(../../img/pic_bg.png) no-repeat;
     		background-size: 100% 6em;
-    		padding: 1em;  
+    		padding: 1em .5em 1em 1em;    
     	}
     	.headPic{
     		width: 3.8em;
@@ -58,6 +58,7 @@
     		font-size: 1em;
     		width: 3.9em;
     		float: right;
+    		z-index: 500;  
     		background: url(../../img/head_button.png)no-repeat;
     		background-size: 100% 100%;
     	}
@@ -120,23 +121,30 @@
 		</div>
 	</content>
 </body>
+
+<script src="../../js/public/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/public/tools.js" type="text/javascript" charset="utf-8"></script>
 <script>
-	document.getElementById("promptBtn").addEventListener('tap', function(e) {
-				e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
-				var btnArray = ['确定', '取消'];
-				mui.prompt( '请输入您的昵称', btnArray, function(e) {
-					if (e.index == 0) {
-						$('#head_pic_name').text(e.value);     //e.value
-					} else {
-						mui.toast('你点了取消按钮');
-					} 
-				})
-			});
-	document.querySelector('#my_order').addEventListener('tap',function(){
-		mui.openWindow({
-			url:'my_order.html',
-			id:'my_order.html'
+	mui.init();
+	mui.plusReady(function(){
+		
+		document.getElementById("promptBtn").addEventListener('tap', function(e) {
+			alert(111)
+			e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+			var btnArray = ['确定', '取消'];
+			mui.prompt( '请输入您的昵称', btnArray, function(e) {
+				if (e.index == 0) {
+					$('#head_pic_name').text(e.value);     //e.value
+				} else {
+					mui.toast('你点了取消按钮');
+				} 
+			})
+		});
+		
+		document.querySelector('#my_order').addEventListener('tap',function(){
+			openWindow('my_order.html')
 		})
+		
 	})
 </script>
 </html>
